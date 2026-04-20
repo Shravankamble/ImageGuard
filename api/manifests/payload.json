@@ -1,0 +1,207 @@
+{
+    "apiVersion": String("admission.k8s.io/v1"),
+    "kind": String("AdmissionReview"),
+    "request": Object {
+        "dryRun": Bool(false),
+        "kind": Object {
+            "group": String(""),
+            "kind": String("Pod"),
+            "version": String("v1")
+        },
+        "name": String("my-pod"),
+        "namespace": String("default"),
+        "object": Object {
+            "apiVersion": String("v1"),
+            "kind": String("Pod"),
+            "metadata": Object {
+                "annotations": Object {
+                    "kubectl.kubernetes.io/last-applied-configuration": String("{\"apiVersion\":\"v1\",\"kind\":\"Pod\",\"metadata\":{\"annotations\":{},\"name\":\"my-pod\",\"namespace\":\"default\"},\"spec\":{\"containers\":[{\"image\":\"ghcr.io/shravankamble/jwt-auth:v2\",\"name\":\"myapp\",\"ports\":[{\"containerPort\":8000}],\"resources\":{\"limits\":{\"cpu\":\"500m\",\"memory\":\"128Mi\"},\"requests\":{\"cpu\":\"250m\",\"memory\":\"64Mi\"}}}]}}\n")
+                },
+                "creationTimestamp": String("2026-04-17T14:57:07Z"),
+                "generation": Number(1),
+                "managedFields": Array [Object {
+                        "apiVersion": String("v1"),
+                        "fieldsType": String("FieldsV1"),
+                        "fieldsV1": Object {
+                            "f:metadata": Object {
+                                "f:annotations": Object {
+                                    ".": Object {},
+                                    "f:kubectl.kubernetes.io/last-applied-configuration": Object {}
+                                }
+                            },
+                            "f:spec": Object {
+                                "f:containers": Object {
+                                    "k:{\"name\":\"myapp\"}": Object {
+                                        ".": Object {},
+                                        "f:image": Object {},
+                                        "f:imagePullPolicy": Object {},
+                                        "f:name": Object {},
+                                        "f:ports": Object {
+                                            ".": Object {},
+                                            "k:{\"containerPort\":8000,\"protocol\":\"TCP\"}": Object {
+                                                ".": Object {},
+                                                "f:containerPort": Object {},
+                                                "f:protocol": Object {}
+                                            }
+                                        },
+                                        "f:resources": Object {
+                                            ".": Object {},
+                                            "f:limits": Object {
+                                                ".": Object {},
+                                                "f:cpu": Object {},
+                                                "f:memory": Object {}
+                                            },
+                                            "f:requests": Object {
+                                                ".": Object {},
+                                                "f:cpu": Object {},
+                                                "f:memory": Object {}
+                                            }
+                                        },
+                                        "f:terminationMessagePath": Object {},
+                                        "f:terminationMessagePolicy": Object {}
+                                    }
+                                },
+                                "f:dnsPolicy": Object {},
+                                "f:enableServiceLinks": Object {},
+                                "f:restartPolicy": Object {},
+                                "f:schedulerName": Object {},
+                                "f:securityContext": Object {},
+                                "f:terminationGracePeriodSeconds": Object {}
+                            }
+                        },
+                        "manager": String("kubectl-client-side-apply"),
+                        "operation": String("Update"),
+                        "time": String("2026-04-17T14:57:07Z")
+                    }
+                ],
+                "name": String("my-pod"),
+                "namespace": String("default"),
+                "uid": String("e2653067-3312-492b-a21b-7356b23f2034")
+            },
+            "spec": Object {
+                "containers": Array [Object {
+                        "image": String("ghcr.io/shravankamble/jwt-auth:v2"),
+                        "imagePullPolicy": String("IfNotPresent"),
+                        "name": String("myapp"),
+                        "ports": Array [Object {
+                                "containerPort": Number(8000),
+                                "protocol": String("TCP")
+                            }
+                        ],
+                        "resources": Object {
+                            "limits": Object {
+                                "cpu": String("500m"),
+                                "memory": String("128Mi")
+                            },
+                            "requests": Object {
+                                "cpu": String("250m"),
+                                "memory": String("64Mi")
+                            }
+                        },
+                        "terminationMessagePath": String("/dev/termination-log"),
+                        "terminationMessagePolicy": String("File"),
+                        "volumeMounts": Array [Object {
+                                "mountPath": String("/var/run/secrets/kubernetes.io/serviceaccount"),
+                                "name": String("kube-api-access-wvhl4"),
+                                "readOnly": Bool(true)
+                            }
+                        ]
+                    }
+                ],
+                "dnsPolicy": String("ClusterFirst"),
+                "enableServiceLinks": Bool(true),
+                "preemptionPolicy": String("PreemptLowerPriority"),
+                "priority": Number(0),
+                "restartPolicy": String("Always"),
+                "schedulerName": String("default-scheduler"),
+                "securityContext": Object {},
+                "serviceAccount": String("default"),
+                "serviceAccountName": String("default"),
+                "terminationGracePeriodSeconds": Number(30),
+                "tolerations": Array [Object {
+                        "effect": String("NoExecute"),
+                        "key": String("node.kubernetes.io/not-ready"),
+                        "operator": String("Exists"),
+                        "tolerationSeconds": Number(300)
+                    }, Object {
+                        "effect": String("NoExecute"),
+                        "key": String("node.kubernetes.io/unreachable"),
+                        "operator": String("Exists"),
+                        "tolerationSeconds": Number(300)
+                    }
+                ],
+                "volumes": Array [Object {
+                        "name": String("kube-api-access-wvhl4"),
+                        "projected": Object {
+                            "defaultMode": Number(420),
+                            "sources": Array [Object {
+                                    "serviceAccountToken": Object {
+                                        "expirationSeconds": Number(3607),
+                                        "path": String("token")
+                                    }
+                                }, Object {
+                                    "configMap": Object {
+                                        "items": Array [Object {
+                                                "key": String("ca.crt"),
+                                                "path": String("ca.crt")
+                                            }
+                                        ],
+                                        "name": String("kube-root-ca.crt")
+                                    }
+                                }, Object {
+                                    "downwardAPI": Object {
+                                        "items": Array [Object {
+                                                "fieldRef": Object {
+                                                    "apiVersion": String("v1"),
+                                                    "fieldPath": String("metadata.namespace")
+                                                },
+                                                "path": String("namespace")
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "status": Object {
+                "phase": String("Pending"),
+                "qosClass": String("Burstable")
+            }
+        },
+        "oldObject": Null,
+        "operation": String("CREATE"),
+        "options": Object {
+            "apiVersion": String("meta.k8s.io/v1"),
+            "fieldManager": String("kubectl-client-side-apply"),
+            "fieldValidation": String("Strict"),
+            "kind": String("CreateOptions")
+        },
+        "requestKind": Object {
+            "group": String(""),
+            "kind": String("Pod"),
+            "version": String("v1")
+        },
+        "requestResource": Object {
+            "group": String(""),
+            "resource": String("pods"),
+            "version": String("v1")
+        },
+        "resource": Object {
+            "group": String(""),
+            "resource": String("pods"),
+            "version": String("v1")
+        },
+        "uid": String("7a33b8ce-6c10-4c20-9f27-3662e19bc6cf"),
+        "userInfo": Object {
+            "extra": Object {
+                "authentication.kubernetes.io/credential-id": Array [String("X509SHA256=79a0d225c6ad38986828d0e368199077f913674fba55f50c226ce0aaf744700f")
+                ]
+            },
+            "groups": Array [String("kubeadm:cluster-admins"), String("system:authenticated")
+            ],
+            "username": String("kubernetes-admin")
+        }
+    }
+}

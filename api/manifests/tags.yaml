@@ -1,0 +1,15 @@
+apiVersion: security.image/v1
+kind: Tag
+metadata:
+  name: new-vulnerability
+  namespace: dev
+  labels:
+    policy: backend
+    env: prod
+spec:
+  image: ghcr.io/shravankamble/jwt-auth:v2
+  vulnerabilities:
+    critical: 7
+    high: 2
+    medium: 3
+    low: 5

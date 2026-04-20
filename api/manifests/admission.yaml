@@ -1,0 +1,17 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingWebhookConfiguration
+metadata:
+  name: "admission-webhook"
+webhooks:
+- name: "admission-webhook.ngrok-free.app"
+  rules:
+  - apiGroups:   [""]
+    apiVersions: ["v1"]
+    operations:  ["CREATE"]
+    resources:   ["pods"]
+    scope:       "Namespaced"
+  clientConfig:
+    url: https://9d0c-183-87-179-17.ngrok-free.app/validate
+  admissionReviewVersions: ["v1"]
+  sideEffects: None
+  timeoutSeconds: 5
