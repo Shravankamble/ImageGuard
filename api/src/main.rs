@@ -15,7 +15,8 @@ use kube::{
     api::{ListParams, WatchEvent},
     core::response::StatusCause,
     runtime::{
-        WatchStreamExt, watcher::{self, watcher}
+        WatchStreamExt,
+        watcher::{self, watcher},
     },
 };
 mod cache;
@@ -236,10 +237,10 @@ async fn validate(
         },
     };
 
-    /* admission review request image field stored as 
+    /* admission review request image field stored as
        Some(String("image_name"))
     */
-    
+
     let path = "/request/object/spec/containers/0/image";
 
     let image = payload
