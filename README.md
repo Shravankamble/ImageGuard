@@ -43,7 +43,8 @@ ImageGuard includes built-in observability to monitor admission control and poli
 
 ### Testing
 - **Webhook Testing with ngrok - Admission Control Validation**
-- ![Webhook Testing with ngrok](assets/ngrok-admission-test.png)
+- Screenshot showing a denied image being blocked by the webhook at admission runtime during ngrok testing
+  ![Webhook Testing with ngrok](assets/ngrok-admission-test.png)
 - *Successfully tested the validating admission webhook using ngrok for real Kubernetes admission requests.*
 
 ### Technologies Used
