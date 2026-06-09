@@ -11,7 +11,7 @@ ImageGuard enforces configurable vulnerability thresholds on container images **
 3. **Controller Stage** — The Rust controller evaluates the report against `ImageThreshold` policies using label selectors and updates the status to `allowed` or `denied`.
 4. **Webhook Stage** — The validating admission webhook performs a fast cache lookup and denies workloads containing violating images.
 
-### Completed Features
+### Features
 - Custom Rust controller using `kube-rs` and `tokio` for policy evaluation with CRDs and label selectors.
 - Rust + Axum validating admission webhook with in-memory cache (`moka` with TTL/TTI) and background watcher.
 - GitOps integration with ArgoCD and Trivy scanning.
