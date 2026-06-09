@@ -4,12 +4,12 @@ metadata:
   name: new-vulnerability
   namespace: dev
   labels:
-    policy: backend
+    policy: infra
     env: prod
 spec:
   image: ghcr.io/shravankamble/jwt-auth:v2
   vulnerabilities:
     critical: 7
-    high: 2
+    high: 10
     medium: 3
     low: 5

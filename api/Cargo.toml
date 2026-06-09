@@ -18,3 +18,4 @@ tokio = { version = "1.45.1", features = ["rt", "rt-multi-thread"] }
 tower = { version = "0.5.3" } 
 crd = { version = "0.1.0", path = "../../enforcer-operator/crd" }
 moka = { version = "0.12.15", features = ["future"] }
+anyhow = "1.0.102"

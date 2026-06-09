@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
   - name: myapp
-    image: ghcr.io/shravankamble/jwt-auth:v2
+    image: ghcr.io/shravankamble/jwt-auth:v1
     resources:
       requests:
         memory: "64Mi"

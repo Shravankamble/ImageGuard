@@ -11,7 +11,7 @@ webhooks:
     resources:   ["pods"]
     scope:       "Namespaced"
   clientConfig:
-    url: https://9d0c-183-87-179-17.ngrok-free.app/validate
+    url: https://126e-183-87-179-129.ngrok-free.app/validate
   admissionReviewVersions: ["v1"]
   sideEffects: None
   timeoutSeconds: 5
